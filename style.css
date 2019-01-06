@@ -32,7 +32,7 @@ Extra large ≥1200px   .col-xl- Max container width 1140px
   width: 100%;
 }
 
-a, a:hover {
+a:hover {
   text-decoration: none;
 }
 
@@ -91,10 +91,6 @@ nav .language span {
 nav .login span {
   border-right: 1px solid grey;
   font-size: 0.8rem;
-}
-
-nav .language span {
-  text-align: right;
 }
 
 nav .language span:hover {
