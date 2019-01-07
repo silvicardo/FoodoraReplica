@@ -26,11 +26,39 @@ Extra large ≥1200px   .col-xl- Max container width 1140px
   padding: 0;
   box-sizing: border-box;
   font-size: 16px;
+  font-family: 'Montserrat';
+}
+
+@media all and (max-width: 992px) {
+
+  * {
+      font-size: 10px;
+  }
+
 }
 
 #main-container {
   width: 100%;
+  position: relative;
 }
+
+#main-container > img.hero_background {
+  width: 64vw;
+  position: absolute;
+  top: 0;
+  right: -30vw;
+}
+
+@media all and (max-width: 992px) {
+
+  #main-container > img.hero_background {
+    width: 80vw;
+    top: 50px;
+    right: -55vw;
+  }
+
+}
+
 
 a:hover {
   text-decoration: none;
@@ -40,11 +68,28 @@ a:hover {
   color: #D70E64;
 }
 
+.bg_foodora {
+  background: #D70E64;
+}
+
 /************************************************/
 /************* OGGETTI RICORRENTI ***************/
 /************************************************/
 
+.foodora_btn, .foodora_btn:hover {
+  display: block;
+  height: 70px;
+  width: 100%;
+  padding: 15px 25px;
+  text-align: center;
+  font-size: 15px;
+  line-height: 40px;
+  color: white;
+}
 
+ .foodora_btn:hover {
+    background: #C50B5C;
+ }
 
 /**********************************************/
 /************* SEZIONI DOCUMENTO *************/
@@ -57,7 +102,7 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 2;
 }
 
 /* nav(notScrolling) */
@@ -104,7 +149,7 @@ nav .scroll_hover_block {
 /* nav.scrolling */
 
 nav.scrolling {
-  background: lightgrey;
+  background: white;
 }
 
 nav.scrolling .languages {
@@ -162,12 +207,63 @@ nav.scrolling .login_cnt:hover .foodora_text {
   nav.scrolling .purchase_cnt, nav.scrolling .login_cnt {
     border: 0;
   }
+
 }
 
-/* content */
-
-.test {
-  height: 2000px;
-  width: 100%;
-  background: pink;
+/* hero_section  */
+.hero_section {
+  padding-top: 70px;
+  height: 450px;
+  z-index: 1;
 }
+
+.hero_section .searchBar .inputTitle {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  font-size: 10px;
+  transform: translateY(-50%);
+}
+
+.hero_section .searchBar .inputTitle.active {
+  display: block;
+  background: white;
+  padding: 0px 10px;
+  top: 0;
+  animation: locationInputTitleSlideUp 0.3s linear;
+}
+
+@keyframes locationInputTitleSlideUp {
+  0% { left: 10px; top: 50%; font-size: 12px; transform: translateY(-50%)}
+  100% { top: 0; font-size: 10px}
+}
+
+.hero_section input {
+  height: 70px;
+  font-size: 15px;
+  outline: none;
+}
+
+.hero_section input:focus {
+  border: 1px solid black;
+}
+
+.hero_section input:focus::placeholder {
+  opacity: 0;
+}
+
+.hero_section .searchBar .location_link {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+
+@media all and (min-width: 992px) {
+  .hero_section .searchBar {
+    background: white;
+  }
+}
+
+/* find city section */
