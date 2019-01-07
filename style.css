@@ -38,8 +38,9 @@ Extra large ≥1200px   .col-xl- Max container width 1140px
 }
 
 #main-container {
-  width: 100%;
+  width: 100vw;
   position: relative;
+  overflow-x: hidden;
 }
 
 #main-container > img.hero_background {
@@ -60,7 +61,8 @@ Extra large ≥1200px   .col-xl- Max container width 1140px
 }
 
 
-a:hover {
+a, a:hover {
+  cursor: pointer;
   text-decoration: none;
 }
 
@@ -70,6 +72,14 @@ a:hover {
 
 .bg_foodora {
   background: #D70E64;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 /************************************************/
@@ -267,3 +277,80 @@ nav.scrolling .login_cnt:hover .foodora_text {
 }
 
 /* find city section */
+
+.find_cities_section > h1 {
+  color: rgba(0,0,0,0.04);
+  font-size: 8rem;
+  font-weight: bold;
+  z-index: -1;
+}
+
+.city_tile {
+  margin-right: 20px;
+  margin-bottom: 20px;
+  height: 270px;
+  width: 200px;
+  overflow: hidden;
+}
+
+.city_tile img {
+  height: 100%;
+  transform: translateX(-30%);
+  transition: height 0.3s;
+}
+
+.city_tile:hover img {
+  height: 105%;
+}
+
+.city_tile h4 {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: white;
+}
+
+.city_tile .arrow {
+  opacity: 0;
+  height: 40px;
+  width: 40px;
+  padding-left: 10px;
+  transition: opacity 0.2s linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.city_tile .arrow img {
+  width: 20px;
+  height: 20px;
+}
+
+.city_tile:hover .arrow {
+  opacity: 1;
+}
+
+.city_tile .first_letter {
+  opacity: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translate(-5%,23%);
+  margin-bottom: 0;
+  color: #C50B5C;
+  font-size: 10rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: opacity 0.3s;
+}
+.city_tile:hover .first_letter {
+  opacity: 0.7;
+}
+
+@media all and (max-width: 991px) {
+
+  .find_cities_section .tiles {
+    max-width: 90vw;
+    overflow: scroll;
+  }
+
+}
