@@ -35,13 +35,19 @@ Extra large ≥1200px   .col-xl- Max container width 1140px
   padding: 0;
   box-sizing: border-box;
   font-size: 16px;
-  font-family: "Montserrat";
+  font-family: "Montserrat", sans-serif;
 }
 
 @media all and (max-width: 992px) {
   * {
     font-size: 10px;
   }
+}
+
+a,
+a:hover {
+  cursor: pointer;
+  text-decoration: none;
 }
 
 #main-container {
@@ -65,18 +71,16 @@ Extra large ≥1200px   .col-xl- Max container width 1140px
   }
 }
 
-a,
-a:hover {
-  cursor: pointer;
-  text-decoration: none;
-}
-
 .foodora_text {
   color: #D70E64;
 }
 
 .bg_foodora {
   background: #D70E64;
+}
+
+.bg_foodora:hover {
+  background: #C50B5C;
 }
 
 .overlay {
@@ -93,8 +97,7 @@ a:hover {
 
 /************************************************/
 
-.foodora_btn,
-.foodora_btn:hover {
+.foodora_btn {
   display: block;
   height: 70px;
   width: 100%;
@@ -106,14 +109,8 @@ a:hover {
 }
 
 .foodora_btn:hover {
-  background: #C50B5C;
+  color: white;
 }
-
-/**********************************************/
-
-/************* SEZIONI DOCUMENTO *************/
-
-/**********************************************/
 
 /* NAVBAR */
 
@@ -409,6 +406,4 @@ nav.scrolling .login_cnt:hover .foodora_text {
     overflow: scroll;
   }
 }
-
-/*@import "partials/";*/
 

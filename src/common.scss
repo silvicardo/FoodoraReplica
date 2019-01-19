@@ -25,59 +25,66 @@ Extra large ≥1200px   .col-xl- Max container width 1140px
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-size: 16px;
-  font-family: 'Montserrat';
+  font-size: $baseFontSize;
+  font-family: $fontFamily;
 }
 
-@media all and (max-width: 992px) {
+@media all and (max-width: $mobileFontSizeBreakpoint) {
 
   * {
-      font-size: 10px;
+      font-size: $mobileFontSize;
   }
 
 }
-
-#main-container {
-  width: 100vw;
-  position: relative;
-  overflow-x: hidden;
-}
-
-#main-container > img.hero_background {
-  width: 64vw;
-  position: absolute;
-  top: 0;
-  right: -30vw;
-}
-
-@media all and (max-width: 992px) {
-
-  #main-container > img.hero_background {
-    width: 80vw;
-    top: 50px;
-    right: -55vw;
-  }
-
-}
-
 
 a, a:hover {
   cursor: pointer;
   text-decoration: none;
 }
 
+#main-container {
+  width: 100vw;
+  position: relative;
+  overflow-x: hidden;
+  & > img.hero_background {
+    width: 64vw;
+    position: absolute;
+    top: 0;
+    right: -30vw;
+  }
+}
+
+@media all and (max-width: 992px) {
+
+  #main-container {
+   & > img.hero_background {
+    width: 80vw;
+    top: 50px;
+    right: -55vw;
+    }
+  }
+
+}
+
 .foodora_text {
-  color: #D70E64;
+  color: $fuchsiaFoodora ;
 }
 
 .bg_foodora {
-  background: #D70E64;
+  background: $fuchsiaFoodora;
+  &:hover {
+    background: $hoverFuchsiaFoodora;
+  }
 }
 
-.overlay {
+@mixin positionAbsoluteTopLeft {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.overlay {
+  @include positionAbsoluteTopLeft;
   width: 100%;
   height: 100%;
 }
@@ -86,271 +93,20 @@ a, a:hover {
 /************* OGGETTI RICORRENTI ***************/
 /************************************************/
 
-.foodora_btn, .foodora_btn:hover {
-  display: block;
-  height: 70px;
-  width: 100%;
-  padding: 15px 25px;
-  text-align: center;
-  font-size: 15px;
-  line-height: 40px;
-  color: white;
+%foodoraBaseButton {
+  display: $foodoraBtnDefaultDisplay;
+  height: $foodoraBtnDefaultHeight;
+  width: $foodoraBtnDefaultWidth;
+  padding: $foodoraBtnDefaultPadding;
+  text-align: $foodoraBtnDefaultTextAlign;
+  font-size: $foodoraBtnDefaultFontSize;
+  line-height: $foodoraBtnDefaultLineHeight;
+  color: $foodoraBtnDefaultTextColor;
 }
 
- .foodora_btn:hover {
-    background: #C50B5C;
- }
-
-/**********************************************/
-/************* SEZIONI DOCUMENTO *************/
-/**********************************************/
-
-/* NAVBAR */
-
-header {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 2;
-}
-
-/* nav(notScrolling) */
-
-nav {
-  position: relative;
-  height: 50px;
-}
-
-nav .languages, nav .login_cnt, nav .purchase_cnt  {
-  height: 50px;
-  line-height: 50px;
-  border: 0;
-}
-
-nav .language {
-  height: 50px;
-  border-right: 1px solid grey;
-}
-
-nav .language.nb {
-  border-left: 1px solid grey;
-  border-right: 1px solid black;
-}
-
-nav .language span {
-  font-size: 0.8rem;
-  color: #333333;
-}
-
-nav .login span {
-  border-right: 1px solid grey;
-  font-size: 0.8rem;
-}
-
-nav .language span:hover {
-  color: black;
-}
-
-nav .scroll_hover_block {
-  display: none;
-}
-
-/* nav.scrolling */
-
-nav.scrolling {
-  background: white;
-}
-
-nav.scrolling .languages {
-  border-left: 1px solid grey;
-  border-right: 1px solid grey;
-}
-
-nav.scrolling .language, nav.scrolling .login span  {
-  border: 0;
-}
-
-nav.scrolling .language.nb {
-  border-right: 1px solid black;
-}
-
-nav.scrolling .login_cnt {
-  border-right: 1px solid grey;
-}
-
-nav.scrolling .login_cnt:hover, nav.scrolling .purchase_cnt:hover {
-  background: #D70E64;
-}
-
-nav.scrolling .login_cnt:hover img.scroll_hover_none, nav.scrolling .purchase_cnt:hover img.scroll_hover_none {
-  display: none;
-}
-
-nav.scrolling .login_cnt img.scroll_hover_block, nav.scrolling .purchase_cnt img.scroll_hover_block {
-  display: none;
-}
-
-nav.scrolling .login_cnt:hover img.scroll_hover_block, nav.scrolling .purchase_cnt:hover img.scroll_hover_block {
-  display: inline;
-}
-
-nav.scrolling .login_cnt:hover .foodora_text {
-  color: white;
-}
-
-
-@media all and (min-width: 992px) {
-
-  nav .logo {
-    display: block;
-    position: absolute;
-    left: 20px;
-    top: 0;
-    line-height: 50px;
+.foodora_btn {
+  @extend %foodoraBaseButton;
+  &:hover {
+      color: $foodoraBtnDefaultTextColor;
   }
-
-}
-
-@media all and (max-width: 991px) {
-
-  nav.scrolling .purchase_cnt, nav.scrolling .login_cnt {
-    border: 0;
-  }
-
-}
-
-/* hero_section  */
-.hero_section {
-  padding-top: 70px;
-  height: 450px;
-  z-index: 1;
-}
-
-.hero_section .searchBar .inputTitle {
-  display: none;
-  position: absolute;
-  top: 50%;
-  left: 10px;
-  font-size: 10px;
-  transform: translateY(-50%);
-}
-
-.hero_section .searchBar .inputTitle.active {
-  display: block;
-  background: white;
-  padding: 0px 10px;
-  top: 0;
-  animation: locationInputTitleSlideUp 0.3s linear;
-}
-
-@keyframes locationInputTitleSlideUp {
-  0% { left: 10px; top: 50%; font-size: 12px; transform: translateY(-50%)}
-  100% { top: 0; font-size: 10px}
-}
-
-.hero_section input {
-  height: 70px;
-  font-size: 15px;
-  outline: none;
-}
-
-.hero_section input:focus {
-  border: 1px solid black;
-}
-
-.hero_section input:focus::placeholder {
-  opacity: 0;
-}
-
-.hero_section .searchBar .location_link {
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
-}
-
-@media all and (min-width: 992px) {
-  .hero_section .searchBar {
-    background: white;
-  }
-}
-
-/* find city section */
-
-.find_cities_section > h1 {
-  color: rgba(0,0,0,0.04);
-  font-size: 8rem;
-  font-weight: bold;
-  z-index: -1;
-}
-
-.city_tile {
-  margin-right: 20px;
-  margin-bottom: 20px;
-  height: 270px;
-  width: 200px;
-  overflow: hidden;
-}
-
-.city_tile img {
-  height: 100%;
-  transform: translateX(-30%);
-  transition: height 0.3s;
-}
-
-.city_tile:hover img {
-  height: 105%;
-}
-
-.city_tile h4 {
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: white;
-}
-
-.city_tile .arrow {
-  opacity: 0;
-  height: 40px;
-  width: 40px;
-  padding-left: 10px;
-  transition: opacity 0.2s linear;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.city_tile .arrow img {
-  width: 20px;
-  height: 20px;
-}
-
-.city_tile:hover .arrow {
-  opacity: 1;
-}
-
-.city_tile .first_letter {
-  opacity: 0;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  transform: translate(-5%,23%);
-  margin-bottom: 0;
-  color: #C50B5C;
-  font-size: 10rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  transition: opacity 0.3s;
-}
-.city_tile:hover .first_letter {
-  opacity: 0.7;
-}
-
-@media all and (max-width: 991px) {
-
-  .find_cities_section .tiles {
-    max-width: 90vw;
-    overflow: scroll;
-  }
-
 }

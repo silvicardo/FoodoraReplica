@@ -1,0 +1,33 @@
+
+//COLORI
+
+$fuchsiaFoodora: #D70E64;
+$hoverFuchsiaFoodora: #C50B5C;
+$whiteColor: white;
+
+//FONT
+
+$fontLight: 300;
+$fontRegular: 400;
+$fontMedium: 500;
+$fontSemiBold: 600;
+$fontBold: 700;
+
+$fontFamily: 'Montserrat', sans-serif;
+
+$baseFontSize: 16px;
+$mobileFontSize: 10px;
+$mobileFontSizeBreakpoint: 992px;
+
+//FOODORA BUTTON
+
+$foodoraBtnDefaultDisplay: block;
+$foodoraBtnDefaultHeight: 70px;
+$foodoraBtnDefaultWidth: 100%;
+$foodoraBtnDefaultPadding: 15px 25px;
+$foodoraBtnDefaultTextAlign: center;
+$foodoraBtnDefaultFontSize: 15px;
+$foodoraBtnDefaultLineHeight: 40px;
+$foodoraBtnDefaultTextColor: $whiteColor;
+$foodoraBtnDefaultBackground: $fuchsiaFoodora;
+$foodoraBtnDefaultHoverBackground: $hoverFuchsiaFoodora;

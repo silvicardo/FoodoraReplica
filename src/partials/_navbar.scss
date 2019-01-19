@@ -1,0 +1,115 @@
+
+/* NAVBAR */
+
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+/* nav(notScrolling) */
+
+nav {
+  position: relative;
+  height: 50px;
+}
+
+nav .languages, nav .login_cnt, nav .purchase_cnt  {
+  height: 50px;
+  line-height: 50px;
+  border: 0;
+}
+
+nav .language {
+  height: 50px;
+  border-right: 1px solid grey;
+}
+
+nav .language.nb {
+  border-left: 1px solid grey;
+  border-right: 1px solid black;
+}
+
+nav .language span {
+  font-size: 0.8rem;
+  color: #333333;
+}
+
+nav .login span {
+  border-right: 1px solid grey;
+  font-size: 0.8rem;
+}
+
+nav .language span:hover {
+  color: black;
+}
+
+nav .scroll_hover_block {
+  display: none;
+}
+
+/* nav.scrolling */
+
+nav.scrolling {
+  background: white;
+}
+
+nav.scrolling .languages {
+  border-left: 1px solid grey;
+  border-right: 1px solid grey;
+}
+
+nav.scrolling .language, nav.scrolling .login span  {
+  border: 0;
+}
+
+nav.scrolling .language.nb {
+  border-right: 1px solid black;
+}
+
+nav.scrolling .login_cnt {
+  border-right: 1px solid grey;
+}
+
+nav.scrolling .login_cnt:hover, nav.scrolling .purchase_cnt:hover {
+  background: #D70E64;
+}
+
+nav.scrolling .login_cnt:hover img.scroll_hover_none, nav.scrolling .purchase_cnt:hover img.scroll_hover_none {
+  display: none;
+}
+
+nav.scrolling .login_cnt img.scroll_hover_block, nav.scrolling .purchase_cnt img.scroll_hover_block {
+  display: none;
+}
+
+nav.scrolling .login_cnt:hover img.scroll_hover_block, nav.scrolling .purchase_cnt:hover img.scroll_hover_block {
+  display: inline;
+}
+
+nav.scrolling .login_cnt:hover .foodora_text {
+  color: white;
+}
+
+
+@media all and (min-width: 992px) {
+
+  nav .logo {
+    display: block;
+    position: absolute;
+    left: 20px;
+    top: 0;
+    line-height: 50px;
+  }
+
+}
+
+@media all and (max-width: 991px) {
+
+  nav.scrolling .purchase_cnt, nav.scrolling .login_cnt {
+    border: 0;
+  }
+
+}
