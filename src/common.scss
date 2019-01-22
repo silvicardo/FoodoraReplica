@@ -83,6 +83,13 @@ a, a:hover {
   left: 0;
 }
 
+@mixin positionFixedTopLeft0 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
 .overlay {
   @include positionAbsoluteTopLeft;
   width: 100%;
